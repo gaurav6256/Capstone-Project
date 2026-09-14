@@ -54,6 +54,7 @@ logs/       Application logs
 
 ## Setup
 
+First of all download the zip folder attached in the repository to access the files.
 ### 1. Create a virtual environment
 ```bash
 python -m venv venv
