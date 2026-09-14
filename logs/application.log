@@ -1,0 +1,1371 @@
+2026-08-26 21:46:39,206 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-08-26 21:46:39,207 | ERROR | complaint_processor | Application terminated due to an error.
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\main.py", line 17, in main
+    validate_config()
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\config.py", line 21, in validate_config
+    raise ValueError("GOOGLE_API_KEY is missing. Add it to your .env file.")
+ValueError: GOOGLE_API_KEY is missing. Add it to your .env file.
+2026-08-26 21:47:37,012 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-08-26 21:47:37,013 | ERROR | complaint_processor | Application terminated due to an error.
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\main.py", line 17, in main
+    validate_config()
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\config.py", line 21, in validate_config
+    raise ValueError("GOOGLE_API_KEY is missing. Add it to your .env file.")
+ValueError: GOOGLE_API_KEY is missing. Add it to your .env file.
+2026-08-26 21:48:12,396 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-08-26 21:48:13,277 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-08-26 21:48:13,729 | ERROR | complaint_processor | Failed to process document: complaint_001.txt
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleModelNotFoundError: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+2026-08-26 21:48:13,749 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-08-26 21:48:14,071 | ERROR | complaint_processor | Failed to process document: complaint_002.txt
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleModelNotFoundError: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+2026-08-26 21:48:14,078 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-08-26 21:48:14,292 | ERROR | complaint_processor | Failed to process document: complaint_003.docx
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleModelNotFoundError: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+2026-08-26 21:50:15,582 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-08-26 21:50:16,202 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-08-26 21:50:16,866 | ERROR | complaint_processor | Failed to process document: complaint_001.txt
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleModelNotFoundError: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+2026-08-26 21:50:16,888 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-08-26 21:50:17,082 | ERROR | complaint_processor | Failed to process document: complaint_002.txt
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleModelNotFoundError: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+2026-08-26 21:50:17,086 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-08-26 21:50:17,449 | ERROR | complaint_processor | Failed to process document: complaint_003.docx
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleModelNotFoundError: Error calling model 'gemini-2.0-flash' (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.', 'status': 'NOT_FOUND'}}
+2026-08-26 21:54:22,488 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-08-26 21:54:23,171 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-08-26 21:55:08,737 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-08-26 21:55:37,785 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-08-26 22:00:41,178 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-08-26 22:00:41,798 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-08-26 22:01:04,207 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-08-26 22:01:28,309 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-08-26 22:28:16,798 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-08-26 22:28:17,762 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-08-26 22:28:47,734 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-08-26 22:29:23,369 | ERROR | complaint_processor | Failed to process document: complaint_002.txt
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 35.614589035s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '35s'}]}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleRateLimitError: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 35.614589035s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '35s'}]}}
+2026-08-26 22:29:23,496 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-08-26 22:29:59,751 | ERROR | complaint_processor | Failed to process document: complaint_003.docx
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 59.273868977s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '59s'}]}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleRateLimitError: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 59.273868977s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '59s'}]}}
+2026-08-26 22:35:18,608 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-08-26 22:35:19,344 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-08-26 22:35:55,473 | ERROR | complaint_processor | Failed to process document: complaint_001.txt
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 3.424083872s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '3s'}]}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleRateLimitError: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 3.424083872s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '3s'}]}}
+2026-08-26 22:35:55,498 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-08-26 22:36:42,243 | ERROR | complaint_processor | Failed to process document: complaint_002.txt
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 16.651846568s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '16s'}]}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 30, in process_document
+    customer_email = email_future.result()
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\email_service.py", line 22, in generate
+    return self.chain.invoke({
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleRateLimitError: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 16.651846568s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '16s'}]}}
+2026-08-26 22:36:42,276 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-09-04 01:35:46,122 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-09-04 01:35:46,828 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-09-04 01:36:56,123 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-09-04 01:37:32,189 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-09-04 01:46:01,637 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-09-04 01:46:02,229 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-09-04 01:46:02,764 | ERROR | complaint_processor | Failed to process document: complaint_001.txt
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleInvalidRequestError: Error calling model 'gemini-3.6-flash' (INVALID_ARGUMENT): 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+2026-09-04 01:46:02,892 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-09-04 01:46:02,979 | ERROR | complaint_processor | Failed to process document: complaint_002.txt
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleInvalidRequestError: Error calling model 'gemini-3.6-flash' (INVALID_ARGUMENT): 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+2026-09-04 01:46:02,982 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-09-04 01:46:03,324 | ERROR | complaint_processor | Failed to process document: complaint_003.docx
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleInvalidRequestError: Error calling model 'gemini-3.6-flash' (INVALID_ARGUMENT): 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+2026-09-04 01:49:29,802 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-09-04 01:49:30,391 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-09-04 01:49:30,944 | ERROR | complaint_processor | Failed to process document: complaint_001.txt
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleInvalidRequestError: Error calling model 'gemini-3.6-flash' (INVALID_ARGUMENT): 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+2026-09-04 01:49:30,954 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-09-04 01:49:31,044 | ERROR | complaint_processor | Failed to process document: complaint_002.txt
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleInvalidRequestError: Error calling model 'gemini-3.6-flash' (INVALID_ARGUMENT): 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+2026-09-04 01:49:31,046 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-09-04 01:49:31,382 | ERROR | complaint_processor | Failed to process document: complaint_003.docx
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 24, in process_document
+    complaint_data = self.extraction_service.extract(document_text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\extraction_service.py", line 20, in extract
+    return self.chain.invoke({"document_text": document_text})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleInvalidRequestError: Error calling model 'gemini-3.6-flash' (INVALID_ARGUMENT): 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+2026-09-04 01:50:11,164 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-09-04 01:50:11,758 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-09-04 01:59:11,995 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-09-04 01:59:23,947 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-09-04 21:26:19,843 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-09-04 21:26:20,637 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-09-04 21:28:01,787 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-09-04 21:28:52,423 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-09-04 21:59:42,224 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-09-04 21:59:42,898 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-09-04 22:00:34,367 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-09-04 22:01:22,088 | INFO | complaint_processor | Processing document: complaint_003.docx
+2026-09-04 22:03:28,233 | ERROR | complaint_processor | Failed to process document: complaint_003.docx
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3506, in _generate
+    response: GenerateContentResponse = self.client.models.generate_content(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 6270, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\models.py", line 4707, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1747, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1532, in _request
+    return retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\_api_client.py", line 1511, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 173, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\google\genai\errors.py", line 202, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 29.335531544s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '29s'}]}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\workflow\complaint_workflow.py", line 31, in process_document
+    case_summary = summary_future.result()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Achintya Srivastawa\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\src\services\summary_service.py", line 16, in generate
+    return self.chain.invoke({"case_data": complaint.model_dump_json(indent=2)})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 2908, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 477, in invoke
+    self.generate_prompt(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1866, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1673, in generate
+    self._generate_with_cache(
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2011, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 3510, in _generate
+    _handle_client_error(e, request)
+  File "D:\IIT Patna GenAI Course\ai-complaint-case-processing\myenv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _handle_client_error
+    raise error_type(msg) from e
+langchain_google_genai.chat_models.GoogleRateLimitError: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 29.335531544s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '29s'}]}}
+2026-09-05 20:59:26,377 | INFO | complaint_processor | Starting AI Complaint & Case Processing System
+2026-09-05 20:59:27,291 | INFO | complaint_processor | Processing document: complaint_001.txt
+2026-09-05 21:00:06,555 | INFO | complaint_processor | Processing document: complaint_002.txt
+2026-09-05 21:00:39,743 | INFO | complaint_processor | Processing document: complaint_003.docx
