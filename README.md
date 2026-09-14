@@ -76,8 +76,6 @@ In `.env` add:
 GOOGLE_API_KEY=your_api_key
 ```
 
-Never commit `.env` to GitHub.
-
 ### 5. Run
 ```bash
 python -m src.main
